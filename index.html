@@ -1,0 +1,1697 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>ZAVI Consultoria | Recursos Administrativos em Licitações Públicas</title>
+  <meta name="description" content="Especialistas em recursos administrativos, impugnação de edital e defesa estratégica em licitações públicas. Atendimento em todo o Brasil." />
+  <meta name="keywords" content="recurso administrativo licitação, impugnação edital, defesa licitação pública, desclassificação pregão, contrarrazões licitação" />
+  <link rel="canonical" href="https://zaviconsultoria.com.br" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ZAVI Consultoria | Recursos em Licitações" />
+  <meta property="og:description" content="Perdeu uma licitação? Ainda dá para reverter. Especialistas em recursos administrativos." />
+  <meta property="og:url" content="https://zaviconsultoria.com.br" />
+  <meta property="og:type" content="website" />
+
+  <!--
+    ╔══════════════════════════════════════════╗
+    ║  FONTE: Plus Jakarta Sans                ║
+    ║  Família única — clean, startup, moderna ║
+    ╚══════════════════════════════════════════╝
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ═══════════════════════════════════════════════════════════
+       DESIGN TOKENS — White-Label
+       Altere estas variáveis para personalizar cores e tipografia
+       ═══════════════════════════════════════════════════════════ */
+    :root {
+      /* Paleta principal */
+      --c-navy:    #0C1B2E;
+      --c-navy2:   #142438;
+      --c-navy3:   #1E3258;
+      --c-gold:    #B8962E;
+      --c-gold2:   #D4AF4F;
+      --c-gold3:   #F0D578;
+      --c-cream:   #F5F1EA;
+      --c-white:   #FFFFFF;
+      --c-gray:    #697585;
+      --c-gray2:   #9CA4AF;
+      --c-border:  #E2DDD6;
+
+      /* Tipografia — fonte única */
+      --f:         'Plus Jakarta Sans', sans-serif;
+
+      /* Layout */
+      --max:       1160px;
+      --px:        clamp(1.5rem, 5vw, 3.5rem);
+      --py:        clamp(5rem, 9vw, 8rem);
+
+      /* Animação */
+      --ease:      cubic-bezier(0.4, 0, 0.2, 1);
+      --dur:       0.3s;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       RESET & BASE
+       ═══════════════════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html  { scroll-behavior: smooth; }
+    body  {
+      font-family: var(--f);
+      color: var(--c-navy);
+      background: var(--c-white);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img { display: block; max-width: 100%; }
+    a   { text-decoration: none; color: inherit; }
+    ul  { list-style: none; }
+
+    /* ═══════════════════════════════════════════════════════════
+       LAYOUT HELPERS
+       ═══════════════════════════════════════════════════════════ */
+    .wrap    { max-width: var(--max); margin: 0 auto; padding: 0 var(--px); }
+    section  { padding: var(--py) 0; }
+
+    /* Eyebrow label */
+    .eyebrow {
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+    }
+
+    /* Gold divider bar */
+    .bar { width: 36px; height: 2px; background: var(--c-gold); margin: 1.1rem 0 1.4rem; }
+
+    /* Scroll-reveal */
+    .rev {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+    }
+    .rev.in  { opacity: 1; transform: none; }
+    .rev.d1  { transition-delay: 0.08s; }
+    .rev.d2  { transition-delay: 0.16s; }
+    .rev.d3  { transition-delay: 0.24s; }
+    .rev.d4  { transition-delay: 0.32s; }
+
+    /* ═══════════════════════════════════════════════════════════
+       NAVEGAÇÃO
+       ═══════════════════════════════════════════════════════════ */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem var(--px);
+      background: rgba(12, 27, 46, 0.97);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(184, 150, 46, 0.12);
+    }
+
+    /* Logo */
+    .nav-logo { display: flex; align-items: center; gap: 0.65rem; }
+
+    .logo-mark {
+      width: 34px; height: 34px;
+      border: 1.5px solid var(--c-gold);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--c-gold);
+      flex-shrink: 0;
+    }
+
+    .logo-copy   { display: flex; flex-direction: column; line-height: 1.2; }
+    .logo-name   { font-size: 1rem; font-weight: 800; color: var(--c-white); letter-spacing: 0.06em; }
+    .logo-sub    { font-size: 0.54rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--c-gold); }
+
+    /* Hamburger — abre o drawer lateral */
+    .burger {
+      width: 36px; height: 36px;
+      display: flex; flex-direction: column;
+      align-items: flex-end; justify-content: center;
+      gap: 5px; cursor: pointer; padding: 4px;
+      z-index: 1100; position: relative;
+      background: transparent;
+      border: 1px solid rgba(184,150,46,0.35);
+      transition: border-color var(--dur) var(--ease);
+    }
+    .burger:hover { border-color: var(--c-gold2); }
+
+    .burger span {
+      display: block; height: 1.5px;
+      background: var(--c-gold);          /* linhas douradas */
+      transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease), width var(--dur) var(--ease);
+    }
+
+    .burger span:nth-child(1) { width: 22px; }
+    .burger span:nth-child(2) { width: 15px; }
+    .burger span:nth-child(3) { width: 22px; }
+
+    /* Estado aberto */
+    .burger.open span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); width: 22px; }
+    .burger.open span:nth-child(2) { opacity: 0; width: 0; }
+    .burger.open span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); width: 22px; }
+
+    /* ═══════════════════════════════════════════════════════════
+       DRAWER LATERAL (menu)
+       ═══════════════════════════════════════════════════════════ */
+    .overlay {
+      position: fixed; inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1040;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.35s var(--ease);
+      backdrop-filter: blur(3px);
+    }
+    .overlay.show { opacity: 1; pointer-events: all; }
+
+    .drawer {
+      position: fixed;
+      top: 0; right: 0; bottom: 0;
+      width: min(360px, 100vw);
+      background: var(--c-navy);
+      z-index: 1050;
+      transform: translateX(100%);
+      transition: transform 0.42s var(--ease);
+      display: flex; flex-direction: column;
+      padding: 5rem 2.5rem 2.5rem;
+      border-left: 1px solid rgba(184, 150, 46, 0.1);
+    }
+    .drawer.open { transform: translateX(0); }
+
+    /* Links do menu */
+    .drawer-menu { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+
+    .drawer-menu li {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+    }
+    .drawer-menu li:first-child { border-top: 1px solid rgba(255, 255, 255, 0.055); }
+
+    .drawer-menu a {
+      display: block;
+      font-size: 1.5rem; font-weight: 700;
+      color: rgba(255, 255, 255, 0.8);
+      padding: 1.2rem 0;
+      letter-spacing: -0.01em;
+      transition: color var(--dur) var(--ease), padding-left var(--dur) var(--ease);
+    }
+    .drawer-menu a:hover { color: var(--c-gold2); padding-left: 0.4rem; }
+
+    /* Rodapé do drawer */
+    .drawer-foot {
+      padding-top: 1.75rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.055);
+    }
+    .drawer-foot p {
+      font-size: 0.73rem;
+      color: rgba(255, 255, 255, 0.28);
+      margin-bottom: 0.3rem;
+    }
+    .drawer-foot a {
+      font-size: 0.82rem;
+      color: var(--c-gold);
+      font-weight: 600;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       HERO — layout de dois painéis
+       ═══════════════════════════════════════════════════════════ */
+    #hero {
+      min-height: 100vh;
+      background: var(--c-navy);
+      display: grid;
+      grid-template-columns: 55fr 45fr;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Grade de fundo */
+    .h-grid {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(184, 150, 46, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(184, 150, 46, 0.03) 1px, transparent 1px);
+      background-size: 72px 72px;
+    }
+
+    /* Orbe de luz */
+    .h-orb {
+      position: absolute;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(184, 150, 46, 0.07) 0%, transparent 65%);
+      top: 50%; right: 5%;
+      transform: translateY(-50%);
+      animation: orbPulse 9s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes orbPulse {
+      0%, 100% { transform: translateY(-50%) scale(1); opacity: 1; }
+      50%       { transform: translateY(-53%) scale(1.06); opacity: 0.7; }
+    }
+
+    /* Painel esquerdo — texto */
+    .h-left {
+      position: relative; z-index: 2;
+      padding: clamp(5rem, 8vw, 7rem) 2.5rem clamp(5rem, 9vw, 8rem) var(--px);
+    }
+
+    .h-eyebrow {
+      display: flex; align-items: center; gap: 0.7rem;
+      margin-bottom: 2.5rem;
+      animation: riseUp 0.6s ease 0.1s both;
+    }
+    .h-eyebrow-line { width: 28px; height: 1px; background: var(--c-gold); }
+    .h-eyebrow .eyebrow { color: var(--c-gold); }
+
+    /* Título estático */
+    .h-title-static {
+      font-size: clamp(2.7rem, 5.2vw, 4.2rem);
+      font-weight: 800;
+      color: var(--c-white);
+      line-height: 1.06;
+      letter-spacing: -0.025em;
+      display: block;
+      animation: riseUp 0.7s ease 0.2s both;
+    }
+
+    /* Palavra que troca */
+    .h-morph-wrap {
+      height: clamp(3.1rem, 6vw, 4.7rem);
+      overflow: hidden;
+      margin-bottom: 2rem;
+      animation: riseUp 0.7s ease 0.28s both;
+    }
+    .h-morph {
+      font-size: clamp(2.7rem, 5.2vw, 4.2rem);
+      font-weight: 800;
+      color: var(--c-gold2);
+      line-height: 1.06;
+      letter-spacing: -0.025em;
+      display: block;
+      will-change: opacity, transform;
+    }
+
+    .h-sub {
+      font-size: clamp(0.88rem, 1.35vw, 1rem);
+      color: rgba(255, 255, 255, 0.48);
+      line-height: 1.85;
+      font-weight: 400;
+      max-width: 440px;
+      animation: riseUp 0.7s ease 0.36s both;
+    }
+
+    /* Painel direito — card de dados */
+    .h-right {
+      position: relative; z-index: 2;
+      padding: clamp(5rem, 8vw, 7rem) var(--px) clamp(5rem, 9vw, 8rem) 2.5rem;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .h-card {
+      border: 1px solid rgba(184, 150, 46, 0.18);
+      background: rgba(255, 255, 255, 0.025);
+      padding: 2.5rem;
+      width: 100%;
+      max-width: 340px;
+      animation: fadeIn 1s ease 0.55s both;
+    }
+
+    .h-card-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.28);
+      margin-bottom: 2rem;
+    }
+
+    .h-stats { display: flex; flex-direction: column; }
+
+    .h-stat {
+      padding: 1.4rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap;
+    }
+    .h-stat:first-child { padding-top: 0; }
+    .h-stat:last-child  { border-bottom: none; padding-bottom: 0; }
+
+    .h-stat-num {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--c-gold2);
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .h-stat-unit {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--c-gold2);
+      letter-spacing: -0.01em;
+    }
+
+    .h-stat-desc {
+      display: block;
+      width: 100%;
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.38);
+      font-weight: 400;
+      margin-top: 0.2rem;
+    }
+
+    /* Indicador de scroll */
+    .h-scroll-hint {
+      position: absolute;
+      bottom: 2rem; left: var(--px);
+      display: flex; align-items: center; gap: 0.65rem;
+      animation: fadeIn 0.5s ease 1.2s both;
+    }
+    .h-scroll-bar {
+      width: 30px; height: 1px;
+      background: rgba(255, 255, 255, 0.14);
+      overflow: hidden; position: relative;
+    }
+    .h-scroll-bar::after {
+      content: '';
+      position: absolute; top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: var(--c-gold);
+      animation: scan 2s ease-in-out infinite 1.6s;
+    }
+    @keyframes scan { 0% { left: -100%; } 100% { left: 100%; } }
+    .h-scroll-hint span { font-size: 0.58rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255, 255, 255, 0.22); }
+
+    @keyframes riseUp  { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+    @keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
+
+    /* ═══════════════════════════════════════════════════════════
+       PROBLEMAS
+       ═══════════════════════════════════════════════════════════ */
+    #problems { background: var(--c-cream); }
+
+    .prob-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: end;
+      margin-bottom: 3rem;
+    }
+
+    .prob-intro {
+      font-size: 0.93rem;
+      color: var(--c-gray);
+      line-height: 1.9;
+      font-weight: 400;
+    }
+
+    /* Grid de cards — sem números, com traço dourado */
+    .prob-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--c-border);
+      border: 1px solid var(--c-border);
+    }
+
+    .prob-card {
+      background: var(--c-white);
+      padding: 2rem 1.75rem;
+      transition: background var(--dur) var(--ease);
+      cursor: default;
+    }
+
+    .prob-card:hover { background: var(--c-navy); }
+    .prob-card:hover .pc-bar   { background: var(--c-gold2); }
+    .prob-card:hover .pc-title { color: var(--c-white); }
+    .prob-card:hover .pc-text  { color: rgba(255, 255, 255, 0.42); }
+
+    .pc-bar {
+      width: 20px; height: 1.5px;
+      background: var(--c-gold);
+      margin-bottom: 1.25rem;
+      transition: background var(--dur) var(--ease);
+    }
+
+    .pc-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--c-navy);
+      margin-bottom: 0.55rem;
+      letter-spacing: -0.01em;
+      transition: color var(--dur) var(--ease);
+      line-height: 1.3;
+    }
+
+    .pc-text {
+      font-size: 0.8rem;
+      color: var(--c-gray);
+      line-height: 1.8;
+      font-weight: 400;
+      transition: color var(--dur) var(--ease);
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       SERVIÇOS
+       ═══════════════════════════════════════════════════════════ */
+    #services { background: var(--c-white); }
+
+    .srv-hd { max-width: 560px; margin-bottom: 3rem; }
+    .srv-hd h2 { font-size: clamp(1.9rem, 3.5vw, 2.75rem); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; }
+
+    .srv-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .srv-card {
+      border: 1px solid var(--c-border);
+      padding: 2rem 1.75rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
+    }
+
+    /* Borda animada à esquerda */
+    .srv-card::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: var(--c-gold);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform 0.38s var(--ease);
+    }
+    .srv-card:hover::before { transform: scaleY(1); }
+    .srv-card:hover {
+      border-color: transparent;
+      box-shadow: 0 12px 36px rgba(12, 27, 46, 0.1);
+      transform: translateY(-3px);
+    }
+
+    /* Ícone SVG */
+    .srv-ico {
+      width: 42px; height: 42px;
+      background: rgba(184, 150, 46, 0.08);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    .srv-ico svg {
+      width: 20px; height: 20px;
+      stroke: var(--c-gold);
+      fill: none;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .srv-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--c-navy);
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+
+    .srv-card p {
+      font-size: 0.81rem;
+      color: var(--c-gray);
+      line-height: 1.8;
+      font-weight: 400;
+    }
+
+    .srv-tag {
+      display: inline-block;
+      margin-top: 1.2rem;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      background: rgba(184, 150, 46, 0.07);
+      padding: 0.2rem 0.55rem;
+    }
+
+    .srv-card.wide { grid-column: span 2; }
+
+    /* ═══════════════════════════════════════════════════════════
+       DIFERENCIAIS
+       ═══════════════════════════════════════════════════════════ */
+    #why { background: #0F2035; border-top: 1px solid rgba(184,150,46,0.15); }   /* ligeiramente mais claro que o navy puro */
+
+    .why-inner {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .why-l h2 {
+      font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+      font-weight: 800;
+      color: var(--c-white);
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .why-l p {
+      font-size: 0.86rem;
+      color: rgba(255, 255, 255, 0.38);
+      line-height: 1.9;
+      font-weight: 400;
+    }
+
+    .why-rows { display: flex; flex-direction: column; }
+
+    .why-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.75rem;
+      padding: 1.6rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      transition: padding-left var(--dur) var(--ease);
+    }
+    .why-row:first-child { border-top: 1px solid rgba(255, 255, 255, 0.05); }
+    .why-row:hover { padding-left: 0.4rem; }
+
+    .why-n {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--c-gold);
+      letter-spacing: 0.1em;
+      flex-shrink: 0;
+      padding-top: 0.15rem;
+      min-width: 1.75rem;
+    }
+
+    .why-body h4 {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--c-white);
+      margin-bottom: 0.28rem;
+      letter-spacing: -0.01em;
+    }
+
+    .why-body p {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.36);
+      line-height: 1.72;
+      font-weight: 400;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       SETORES — Carrossel infinito (marquee)
+       ═══════════════════════════════════════════════════════════ */
+    #sectors {
+      background: var(--c-cream);
+      overflow: hidden;
+      padding: clamp(4rem, 7vw, 6rem) 0;
+    }
+
+    .sectors-hd { margin-bottom: 2.75rem; }
+    .sectors-hd h2 {
+      font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+    }
+    .sectors-hd p {
+      margin-top: 0.65rem;
+      font-size: 0.86rem;
+      color: var(--c-gray);
+      max-width: 500px;
+      line-height: 1.85;
+    }
+
+    .marq-outer {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 7%, black 93%, transparent 100%);
+              mask-image: linear-gradient(90deg, transparent 0%, black 7%, black 93%, transparent 100%);
+    }
+
+    .marq-track {
+      display: flex;
+      align-items: center;
+      width: max-content;
+      animation: marquee 34s linear infinite;
+    }
+    .marq-track:hover { animation-play-state: paused; }
+
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    .marq-chip {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--c-navy);
+      padding: 0.6rem 1.5rem;
+      border: 1px solid var(--c-border);
+      background: var(--c-white);
+      white-space: nowrap;
+      margin: 0 0.45rem;
+      letter-spacing: 0.01em;
+      transition: border-color var(--dur), color var(--dur);
+      cursor: default;
+    }
+    .marq-chip:hover { border-color: var(--c-gold); color: var(--c-gold); }
+
+    .marq-dot {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--c-gold);
+      opacity: 0.4;
+      flex-shrink: 0;
+      margin: 0 0.45rem;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       SOBRE / CEO
+       ═══════════════════════════════════════════════════════════ */
+    #about { background: var(--c-white); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    /* Coluna da foto */
+    .ceo-photo {
+      position: relative;
+    }
+
+    .ceo-photo-frame {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      max-height: 520px;
+      overflow: hidden;
+      background: var(--c-cream);
+      border: 1px solid var(--c-border);
+    }
+
+    /* Foto real — definida via CONFIG.ceo.photo */
+    .ceo-photo-frame img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    /* Placeholder quando não há foto */
+    .ceo-placeholder {
+      width: 100%; height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      min-height: 380px;
+    }
+
+    .ceo-placeholder-initials {
+      font-size: 5rem;
+      font-weight: 800;
+      color: rgba(184, 150, 46, 0.18);
+      letter-spacing: -0.05em;
+    }
+
+    .ceo-placeholder-hint {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--c-gray2);
+    }
+
+    /* Detalhe dourado no canto inferior direito */
+    .ceo-photo-frame::after {
+      content: '';
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 44px; height: 44px;
+      background: var(--c-gold);
+    }
+
+    /* Borda deslocada atrás */
+    .ceo-photo::before {
+      content: '';
+      position: absolute;
+      top: -8px; left: -8px;
+      width: 100%; height: 100%;
+      border: 1px solid rgba(184, 150, 46, 0.22);
+      pointer-events: none;
+    }
+
+    /* Coluna do texto */
+    .about-text h2 {
+      font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .about-bio {
+      font-size: 0.9rem;
+      color: var(--c-gray);
+      line-height: 1.9;
+      font-weight: 400;
+    }
+    .about-bio + .about-bio { margin-top: 0.85rem; }
+
+    .ceo-creds { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 2rem; }
+
+    .ceo-cred {
+      font-size: 0.78rem;
+      color: var(--c-navy);
+      font-weight: 500;
+      display: flex; align-items: center; gap: 0.65rem;
+    }
+    .ceo-cred-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--c-gold);
+      flex-shrink: 0;
+    }
+
+    /* Botões de redes sociais */
+    .about-links { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 2rem; }
+
+    .soc-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.73rem; font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--c-navy);
+      border: 1px solid var(--c-border);
+      padding: 0.55rem 1rem;
+      transition: border-color var(--dur), color var(--dur);
+    }
+    .soc-btn:hover { border-color: var(--c-gold); color: var(--c-gold); }
+    .soc-btn svg {
+      width: 14px; height: 14px;
+      stroke: currentColor; fill: none;
+      stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       ESCRITÓRIO / LOCALIZAÇÃO
+       ═══════════════════════════════════════════════════════════ */
+    #office { background: var(--c-cream); }
+
+    .office-hd { margin-bottom: 2.75rem; }
+    .office-hd h2 {
+      font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+    }
+
+    /* 4 cards de informação lado a lado */
+    .office-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--c-border);
+      border: 1px solid var(--c-border);
+      margin-bottom: 1.5rem;
+    }
+
+    .oi-card {
+      background: var(--c-white);
+      padding: 1.75rem 1.5rem;
+      display: flex; flex-direction: column;
+      transition: background var(--dur) var(--ease);
+    }
+    .oi-card:hover { background: var(--c-navy); }
+    .oi-card:hover .oi-lbl  { color: var(--c-gold); }
+    .oi-card:hover .oi-val  { color: var(--c-white); }
+    .oi-card:hover .oi-val a { color: var(--c-white); }
+    .oi-card:hover .oi-ico  { background: rgba(184, 150, 46, 0.14); }
+    .oi-card:hover .oi-ico svg { stroke: var(--c-gold2); }
+
+    .oi-ico {
+      width: 38px; height: 38px;
+      background: rgba(12, 27, 46, 0.06);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.1rem;
+      transition: background var(--dur) var(--ease);
+    }
+    .oi-ico svg {
+      width: 17px; height: 17px;
+      stroke: var(--c-navy); fill: none;
+      stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;
+      transition: stroke var(--dur) var(--ease);
+    }
+
+    .oi-lbl {
+      font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--c-gold);
+      margin-bottom: 0.4rem;
+      transition: color var(--dur) var(--ease);
+    }
+
+    .oi-val {
+      font-size: 0.84rem; font-weight: 500;
+      color: var(--c-navy);
+      line-height: 1.55;
+      transition: color var(--dur) var(--ease);
+    }
+    .oi-val a { color: var(--c-navy); transition: color var(--dur); }
+    .oi-val a:hover { color: var(--c-gold); }
+
+    /* Mapa */
+    .office-map {
+      height: 360px;
+      overflow: hidden;
+      border: 1px solid var(--c-border);
+    }
+    .office-map iframe {
+      width: 100%; height: 100%;
+      border: none;
+      filter: grayscale(0.2) contrast(1.04);
+      display: block;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════════ */
+    footer {
+      background: var(--c-navy);
+      border-top: 1px solid rgba(184, 150, 46, 0.1);
+      padding: 2.25rem 0;
+    }
+
+    .ft-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+
+    .ft-copy { font-size: 0.71rem; color: rgba(255, 255, 255, 0.26); }
+
+    .ft-links { display: flex; gap: 1.75rem; flex-wrap: wrap; }
+    .ft-links a {
+      font-size: 0.71rem;
+      color: rgba(255, 255, 255, 0.26);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: color var(--dur);
+    }
+    .ft-links a:hover { color: var(--c-gold); }
+
+    /* ═══════════════════════════════════════════════════════════
+       WHATSAPP — botão flutuante
+       ═══════════════════════════════════════════════════════════ */
+    .wpp {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      z-index: 900;
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.38);
+      transition: transform var(--dur), box-shadow var(--dur);
+      animation: wppBeat 3.2s ease infinite;
+    }
+    .wpp:hover { transform: scale(1.1); box-shadow: 0 6px 24px rgba(37, 211, 102, 0.55); animation: none; }
+    .wpp svg   { width: 24px; height: 24px; }
+
+    @keyframes wppBeat {
+      0%, 100% { box-shadow: 0 4px 16px rgba(37, 211, 102, 0.38); }
+      50%       { box-shadow: 0 4px 24px rgba(37, 211, 102, 0.58), 0 0 0 7px rgba(37, 211, 102, 0.07); }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       RESPONSIVO
+       ═══════════════════════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      #hero               { grid-template-columns: 1fr; }
+      .h-right            { display: none; }           /* card de stats some em tablet */
+      .why-inner          { grid-template-columns: 1fr; gap: 3rem; }
+      .about-grid         { grid-template-columns: 1fr; gap: 3rem; }
+      .ceo-photo-frame    { max-height: 380px; aspect-ratio: 4/3; }
+    }
+
+    @media (max-width: 768px) {
+      .prob-top           { grid-template-columns: 1fr; gap: 1.75rem; }
+      .prob-grid          { grid-template-columns: 1fr 1fr; }
+      .srv-grid           { grid-template-columns: 1fr 1fr; }
+      .srv-card.wide      { grid-column: span 2; }
+      .office-cards       { grid-template-columns: 1fr 1fr; }
+      .ft-inner           { flex-direction: column; text-align: center; }
+      .ft-links           { justify-content: center; }
+    }
+
+    @media (max-width: 480px) {
+      .prob-grid          { grid-template-columns: 1fr; }
+      .srv-grid           { grid-template-columns: 1fr; }
+      .srv-card.wide      { grid-column: span 1; }
+      .office-cards       { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!--
+    ╔═══════════════════════════════════════════╗
+    ║  NAVEGAÇÃO — drawer lateral                ║
+    ╚═══════════════════════════════════════════╝
+  -->
+  <nav id="nav" role="navigation" aria-label="Menu principal">
+    <a href="#" class="nav-logo" aria-label="ZAVI Consultoria — início">
+      <div class="logo-mark" aria-hidden="true">Z</div>
+      <div class="logo-copy">
+        <span class="logo-name">ZAVI</span>
+        <span class="logo-sub">Consultoria</span>
+      </div>
+    </a>
+
+    <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Overlay escuro atrás do drawer -->
+  <div class="overlay" id="overlay" aria-hidden="true"></div>
+
+  <!-- Drawer lateral -->
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu de navegação">
+    <ul class="drawer-menu" id="drawerMenu">
+      <li><a href="#problems">Situações</a></li>
+      <li><a href="#services">Serviços</a></li>
+      <li><a href="#why">Diferenciais</a></li>
+      <li><a href="#about">A Empresa</a></li>
+      <li><a href="#office">Localização</a></li>
+    </ul>
+
+    <div class="drawer-foot">
+      <p>Fale conosco</p>
+      <a href="https://wa.me/5511992971005?text=Ol%C3%A1%2C%20gostaria%20de%20analisar%20meu%20caso." target="_blank" rel="noopener">
+        (11) 99297-1005
+      </a>
+    </div>
+  </aside>
+
+  <!--
+    ╔═══════════════════════════════════════════╗
+    ║  HERO                                      ║
+    ╚═══════════════════════════════════════════╝
+  -->
+  <section id="hero" aria-label="Apresentação">
+    <div class="h-grid"    aria-hidden="true"></div>
+    <div class="h-orb"     aria-hidden="true"></div>
+
+    <!-- Texto principal -->
+    <div class="h-left">
+      <div class="h-eyebrow">
+        <div class="h-eyebrow-line" aria-hidden="true"></div>
+        <span class="eyebrow">Especialistas em Licitações Públicas</span>
+      </div>
+
+      <div class="h-main">
+        <span class="h-title-static">Sua empresa foi<br>prejudicada em</span>
+        <div class="h-morph-wrap" aria-live="polite" aria-atomic="true">
+          <span class="h-morph" id="morphWord">uma licitação?</span>
+        </div>
+      </div>
+
+      <p class="h-sub">
+        Recursos administrativos estratégicos e defesa técnica
+        em processos licitatórios. Atendimento em todo o Brasil.
+      </p>
+    </div>
+
+    <!-- Card de dados — visível apenas em desktop -->
+    <div class="h-right" aria-hidden="true">
+      <div class="h-card">
+        <p class="h-card-label">Expertise em números</p>
+        <div class="h-stats">
+          <div class="h-stat">
+            <span class="h-stat-num" id="countYears">35</span>
+            <span class="h-stat-unit">+</span>
+            <span class="h-stat-desc">Anos de atuação no mercado público</span>
+          </div>
+          <div class="h-stat">
+            <span class="h-stat-num">100%</span>
+            <span class="h-stat-desc">Foco exclusivo em licitações públicas</span>
+          </div>
+          <div class="h-stat">
+            <span class="h-stat-num">BR</span>
+            <span class="h-stat-desc">Atendimento em todos os estados</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="h-scroll-hint" aria-hidden="true">
+      <div class="h-scroll-bar"></div>
+      <span>Role para explorar</span>
+    </div>
+  </section>
+
+  <!--
+    ╔═══════════════════════════════════════════╗
+    ║  PROBLEMAS                                 ║
+    ╚═══════════════════════════════════════════╝
+  -->
+  <section id="problems">
+    <div class="wrap">
+      <div class="prob-top">
+        <div class="rev">
+          <span class="eyebrow">Situações comuns</span>
+          <div class="bar"></div>
+          <h2 style="font-size:clamp(1.9rem,3.5vw,2.75rem);font-weight:800;letter-spacing:-0.025em;line-height:1.1;">
+            Resultados que ainda podem ser revertidos
+          </h2>
+        </div>
+        <p class="prob-intro rev d1">
+          Empresas perdem contratos todos os dias por não saberem que têm o direito de recorrer.
+          Prazos curtos, linguagem técnica e a falta de um especialista são os principais motivos
+          para que decisões desfavoráveis sejam aceitas quando ainda havia saída legal.
+        </p>
+      </div>
+
+      <div class="prob-grid rev d2">
+        <div class="prob-card">
+          <div class="pc-bar"></div>
+          <div class="pc-title">Desclassificação injusta</div>
+          <p class="pc-text">A proposta foi rejeitada com base em critérios subjetivos ou interpretação equivocada do edital pela comissão julgadora.</p>
+        </div>
+        <div class="prob-card">
+          <div class="pc-bar"></div>
+          <div class="pc-title">Edital restritivo</div>
+          <p class="pc-text">Exigências que ferem a isonomia ou a competitividade, favorecendo determinados fornecedores em detrimento dos demais.</p>
+        </div>
+        <div class="prob-card">
+          <div class="pc-bar"></div>
+          <div class="pc-title">Erro na análise da proposta</div>
+          <p class="pc-text">A administração interpretou mal a documentação técnica ou financeira, gerando uma decisão passível de revisão formal.</p>
+        </div>
+        <div class="prob-card">
+          <div class="pc-bar"></div>
+          <div class="pc-title">Perda por detalhe formal</div>
+          <p class="pc-text">Um dado secundário foi usado para eliminar uma proposta tecnicamente superior. Isso pode e deve ser contestado.</p>
+        </div>
+        <div class="prob-card">
+          <div class="pc-bar"></div>
+          <div class="pc-title">Contrato atribuído irregularmente</div>
+          <p class="pc-text">O vencedor declarado não preenchia os requisitos do edital e há fundamentos concretos para questionar a decisão.</p>
+        </div>
+        <div class="prob-card">
+          <div class="pc-bar"></div>
+          <div class="pc-title">Prazo se esgotando</div>
+          <p class="pc-text">Os prazos administrativos são curtos e improrrogáveis. A ausência de ação imediata encerra definitivamente o direito ao recurso.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--
+    ╔═══════════════════════════════════════════╗
+    ║  SERVIÇOS                                  ║
+    ╚═══════════════════════════════════════════╝
+  -->
+  <section id="services">
+    <div class="wrap">
+      <div class="srv-hd rev">
+        <span class="eyebrow">Serviços</span>
+        <div class="bar"></div>
+        <h2>Defesa técnica em cada fase do processo</h2>
+      </div>
+
+      <div class="srv-grid">
+
+        <!-- Recurso Administrativo -->
+        <div class="srv-card rev d1">
+          <div class="srv-ico" aria-hidden="true">
+            <!-- Ícone: documento com seta -->
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/><line x1="9" y1="11" x2="15" y2="11"/></svg>
+          </div>
+          <h3>Recurso Administrativo</h3>
+          <p>Elaboração fundamentada do recurso contra decisões do pregoeiro ou comissão de licitação. Argumentação jurídica rigorosa dentro dos prazos legais.</p>
+          <span class="srv-tag">Lei 14.133/2021</span>
+        </div>
+
+        <!-- Impugnação de Edital -->
+        <div class="srv-card rev d2">
+          <div class="srv-ico" aria-hidden="true">
+            <!-- Ícone: escudo com X -->
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="9" y1="12" x2="15" y2="12"/></svg>
+          </div>
+          <h3>Impugnação de Edital</h3>
+          <p>Contestação de cláusulas ilegais, restritivas ou discriminatórias antes da sessão pública, ampliando a capacidade de competir em condições isonômicas.</p>
+          <span class="srv-tag">Antes da abertura das propostas</span>
+        </div>
+
+        <!-- Contrarrazões -->
+        <div class="srv-card rev d3">
+          <div class="srv-ico" aria-hidden="true">
+            <!-- Ícone: balança -->
+            <svg viewBox="0 0 24 24"><line x1="12" y1="3" x2="12" y2="21"/><polyline points="3 7 12 3 21 7"/><path d="M5 17l2-6 5 3 5-3 2 6"/><line x1="3" y1="21" x2="21" y2="21"/></svg>
+          </div>
+          <h3>Contrarrazões</h3>
+          <p>Quando outro licitante recorreu, defendemos a posição da sua empresa com argumentação técnica para preservar o contrato conquistado.</p>
+          <span class="srv-tag">Defesa da posição vencedora</span>
+        </div>
+
+        <!-- Pedido de Esclarecimento — card largo -->
+        <div class="srv-card wide rev d1">
+          <div class="srv-ico" aria-hidden="true">
+            <!-- Ícone: interrogação com lupa -->
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><path d="M11 8a2 2 0 0 1 2 2c0 1.5-2 2-2 3"/><line x1="11" y1="16" x2="11.01" y2="16"/></svg>
+          </div>
+          <h3>Pedido de Esclarecimento Estratégico</h3>
+          <p>
+            Questionamentos ao órgão licitante que criam precedentes favoráveis, eliminam ambiguidades do edital e posicionam sua empresa estrategicamente antes da abertura das propostas.
+            Uma etapa frequentemente ignorada pelas empresas, com impacto direto no resultado.
+          </p>
+          <span class="srv-tag">Estratégia pré-licitação</span>
+        </div>
+
+        <!-- Análise de Viabilidade -->
+        <div class="srv-card rev d2">
+          <div class="srv-ico" aria-hidden="true">
+            <!-- Ícone: check em círculo -->
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
+          </div>
+          <h3>Análise de Viabilidade</h3>
+          <p>Avaliação objetiva e honesta das perspectivas antes de qualquer ação. Você sabe exatamente o que é possível fazer e quais são as perspectivas reais do seu caso.</p>
+          <span class="srv-tag">Diagnóstico inicial</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!--
+    ╔═══════════════════════════════════════════╗
+    ║  DIFERENCIAIS                              ║
+    ╚═══════════════════════════════════════════╝
+  -->
+  <section id="why">
+    <div class="wrap">
+      <div class="why-inner">
+        <div class="why-l rev">
+          <span class="eyebrow">Por que a ZAVI</span>
+          <h2>Uma atuação que vai além do recurso</h2>
+          <p>Décadas de experiência prática no mercado público aliadas a uma formação que combina Direito Administrativo com visão econômica.</p>
+        </div>
+
+        <div class="why-rows rev d1">
+          <div class="why-row">
+            <span class="why-n">I</span>
+            <div class="why-body">
+              <h4>Especialização exclusiva em licitações</h4>
+              <p>Não somos generalistas. Todo o conhecimento é direcionado ao mercado público, o que se reflete diretamente na qualidade da defesa.</p>
+            </div>
+          </div>
+          <div class="why-row">
+            <span class="why-n">II</span>
+            <div class="why-body">
+              <h4>Agilidade nos prazos fatais</h4>
+              <p>Nossa estrutura permite elaboração técnica rigorosa em tempo hábil. Quando os dias contam, a experiência faz a diferença.</p>
+            </div>
+          </div>
+          <div class="why-row">
+            <span class="why-n">III</span>
+            <div class="why-body">
+              <h4>Atendimento em todo o Brasil</h4>
+              <p>Atuamos em licitações de órgãos federais, estaduais e municipais em qualquer estado da federação.</p>
+            </div>
+          </div>
+          <div class="why-row">
+            <span class="why-n">IV</span>
+            <div class="why-body">
+              <h4>Visão econômica aplicada ao direito</h4>
+              <p>Formação em Economia complementa a análise jurídica, permitindo avaliar propostas e irregularidades com maior profundidade.</p>
+            </div>
+          </div>
+          <div class="why-row">
+            <span class="why-n">V</span>
+            <div class="why-body">
+              <h4>Parecer honesto antes de qualquer ação</h4>
+              <p>Não elaboramos recursos sem viabilidade. Você sempre saberá o que é possível e quais são as perspectivas reais do seu caso.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--
+    ╔═══════════════════════════════════════════╗
+    ║  SETORES — carrossel marquee               ║
+    ╚═══════════════════════════════════════════╝
+  -->
+  <section id="sectors">
+    <div class="wrap">
+      <div class="sectors-hd rev">
+        <span class="eyebrow">Setores atendidos</span>
+        <div class="bar"></div>
+        <h2>Experiência em diversos mercados</h2>
+        <p>Atuamos com empresas de qualquer segmento. Os setores abaixo refletem parte da nossa experiência acumulada e não representam um limite de atuação.</p>
+      </div>
+    </div>
+
+    <div class="marq-outer" aria-label="Setores atendidos pela ZAVI Consultoria">
+      <!-- Items gerados via JS — evita duplicação manual no HTML -->
+      <div class="marq-track" id="marqTrack" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!--
+    ╔═══════════════════════════════════════════╗
+    ║  SOBRE / CEO                               ║
+    ╚═══════════════════════════════════════════╝
+  -->
+  <section id="about">
+    <div class="wrap">
+      <div class="about-grid">
+
+        <!-- Foto da CEO -->
+        <div class="ceo-photo rev">
+          <div class="ceo-photo-frame" id="ceoPhotoFrame">
+            <!--
+              Substitua o placeholder abaixo pela tag img quando tiver a foto:
+              <img src="URL_DA_FOTO" alt="Sofia Farah Zavitsanos Vlahos" />
+
+              O JS injeta a foto automaticamente a partir de CONFIG.ceo.photo
+            -->
+            <div class="ceo-placeholder" id="ceoPlaceholder">
+              <span class="ceo-placeholder-initials">SF</span>
+              <span class="ceo-placeholder-hint">Foto da CEO</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Texto -->
+        <div class="about-text rev d1">
+          <span class="eyebrow">A Empresa</span>
+          <h2>Décadas dedicadas ao mercado público</h2>
+
+          <p class="about-bio">
+            A ZAVI Consultoria atua há mais de três décadas no mercado público,
+            assessorando empresas de diferentes segmentos em licitações, contratos
+            administrativos, recursos e defesas perante órgãos de todas as esferas.
+          </p>
+          <p class="about-bio">
+            Nossa atuação combina formação em Direito Administrativo com visão
+            econômica, o que nos permite analisar propostas, identificar
+            irregularidades e construir defesas com a profundidade que cada caso exige.
+          </p>
+
+          <div class="ceo-creds">
+            <div class="ceo-cred">
+              <div class="ceo-cred-dot"></div>
+              Sofia Farah Zavitsanos Vlahos — Fundadora e Advogada
+            </div>
+            <div class="ceo-cred">
+              <div class="ceo-cred-dot"></div>
+              Direito Administrativo — FMU / FIAM-FAAM
+            </div>
+            <div class="ceo-cred">
+              <div class="ceo-cred-dot"></div>
+              Economia — Universidade São Judas Tadeu
+            </div>
+            <div class="ceo-cred">
+              <div class="ceo-cred-dot"></div>
+              Atuação em pregões eletrônicos, presenciais e concorrências públicas
+            </div>
+          </div>
+
+          <div class="about-links">
+            <a href="https://www.linkedin.com/in/sofiazavitsanos/" target="_blank" rel="noopener" class="soc-btn">
+              <!-- Ícone LinkedIn -->
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </a>
+            <a href="https://www.instagram.com/zaviconsultoria" target="_blank" rel="noopener" class="soc-btn">
+              <!-- Ícone Instagram -->
+              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              @zaviconsultoria
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!--
+    ╔═══════════════════════════════════════════╗
+    ║  ESCRITÓRIO / LOCALIZAÇÃO                  ║
+    ╚═══════════════════════════════════════════╝
+  -->
+  <section id="office">
+    <div class="wrap">
+      <div class="office-hd rev">
+        <span class="eyebrow">Localização</span>
+        <div class="bar"></div>
+        <h2>Visite nosso escritório</h2>
+      </div>
+
+      <!-- 4 cards de contato -->
+      <div class="office-cards rev d1">
+
+        <!-- Endereço -->
+        <div class="oi-card">
+          <div class="oi-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="oi-lbl">Endereço</div>
+          <div class="oi-val">
+            Rua Correia de Melo, 84<br>
+            Sala 805 — São Paulo, SP
+          </div>
+        </div>
+
+        <!-- Telefone -->
+        <div class="oi-card">
+          <div class="oi-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l.91-.82a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="oi-lbl">Telefone</div>
+          <div class="oi-val">
+            <a href="tel:01133319659">(11) 3331-9659</a>
+          </div>
+        </div>
+
+        <!-- WhatsApp -->
+        <div class="oi-card">
+          <div class="oi-ico" aria-hidden="true">
+            <!-- Ícone WhatsApp simplificado -->
+            <svg viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="oi-lbl">WhatsApp</div>
+          <div class="oi-val">
+            <a href="https://wa.me/5511992971005" target="_blank" rel="noopener">(11) 99297-1005</a>
+          </div>
+        </div>
+
+        <!-- Horário -->
+        <div class="oi-card">
+          <div class="oi-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="oi-lbl">Horário</div>
+          <div class="oi-val">
+            Segunda a sexta<br>9h às 18h
+          </div>
+        </div>
+
+      </div><!-- /office-cards -->
+
+      <!-- Mapa Google -->
+      <div class="office-map rev d2">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.3!2d-46.6520!3d-23.5700!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9220a!2sRua%20Correia%20de%20Melo%2C%2084%20-%20S%C3%A3o%20Paulo%2C%20SP%2C%2001323-010!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="ZAVI Consultoria no Google Maps">
+        </iframe>
+      </div>
+
+    </div>
+  </section>
+
+  <!--
+    ╔═══════════════════════════════════════════╗
+    ║  FOOTER                                    ║
+    ╚═══════════════════════════════════════════╝
+  -->
+  <footer>
+    <div class="wrap">
+      <div class="ft-inner">
+        <span class="ft-copy">© 2026 ZAVI Consultoria. Todos os direitos reservados.</span>
+        <nav class="ft-links" aria-label="Links do rodapé">
+          <a href="#services">Serviços</a>
+          <a href="#why">Diferenciais</a>
+          <a href="#about">A Empresa</a>
+          <a href="#office">Localização</a>
+          <a href="https://www.instagram.com/zaviconsultoria" target="_blank" rel="noopener">Instagram</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flutuante -->
+  <a href="https://wa.me/5511992971005?text=Ol%C3%A1%2C%20gostaria%20de%20analisar%20meu%20caso%20de%20licita%C3%A7%C3%A3o." target="_blank" rel="noopener" class="wpp" aria-label="Contato via WhatsApp">
+    <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+
+  <script>
+    /* ═══════════════════════════════════════════════════════════
+       CONFIG — White-Label
+       Edite este objeto para personalizar o site sem tocar no HTML
+       ═══════════════════════════════════════════════════════════ */
+    const CONFIG = {
+
+      /* Identidade da empresa */
+      company: {
+        name:    'ZAVI Consultoria',
+        tagline: 'Recursos em Licitações Públicas',
+        domain:  'zaviconsultoria.com.br',
+      },
+
+      /* Contatos — use apenas números no whatsapp */
+      contact: {
+        whatsapp:    '5511992971005',
+        wppMessage:  'Olá, gostaria de analisar meu caso de licitação.',
+        phone:       '(11) 3331-9659',
+        phoneLink:   'tel:01133319659',
+        address:     'Rua Correia de Melo, 84, Sala 805',
+        city:        'São Paulo, SP',
+        hours:       'Segunda a sexta, 9h às 18h',
+      },
+
+      /* Redes sociais */
+      social: {
+        linkedin:  'https://www.linkedin.com/in/sofiazavitsanos/',
+        instagram: 'https://www.instagram.com/zaviconsultoria',
+      },
+
+      /* CEO — insira a URL da foto em photo para ativar */
+      ceo: {
+        name:   'Sofia Farah Zavitsanos Vlahos',
+        role:   'Fundadora e Advogada',
+        photo:  'https://media.licdn.com/dms/image/v2/D4D03AQHZNtARTr3t0A/profile-displayphoto-scale_400_400/B4DZ0hiX2mGoAg-/0/1774384153828?e=1776902400&v=beta&t=rGTTf98bZp5siksykwJP7ARgJXsk9WkcQ0sqRT--8kE',   /* ← Cole a URL da foto aqui (ex: '/img/sofia.jpg') */
+      },
+
+      /* Palavras do hero que ciclam */
+      heroWords: [
+        'uma licitação?',
+        'uma desclassificação?',
+        'um edital irregular?',
+        'um contrato perdido?',
+        'uma proposta rejeitada?',
+      ],
+
+      /* Setores para o carrossel marquee */
+      sectors: [
+        'Equipamentos Médicos',
+        'Medicina Nuclear',
+        'Logística e Transporte',
+        'Merenda Escolar',
+        'Engenharia de Projetos',
+        'Gêneros Alimentícios',
+        'Radiofármacos',
+        'Horti-Frutis',
+        'Eventos Corporativos',
+        'Sucos e Bebidas',
+        'Manutenção Industrial',
+        'Saúde e Diagnósticos',
+        'Transporte de Medicamentos',
+        'Distribuição Especializada',
+        'Construção Civil',
+        'Tecnologia da Informação',
+        'Alimentação Coletiva',
+        'Segurança Contra Incêndio',
+      ],
+
+      /* Link do Google Maps embed — atualize conforme necessário */
+      mapsEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.3!2d-46.6520!3d-23.5700!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9220a!2sRua%20Correia%20de%20Melo%2C%2084%20-%20S%C3%A3o%20Paulo%2C%20SP%2C%2001323-010!5e0!3m2!1spt-BR!2sbr!4v1700000000000',
+    };
+
+
+    /* ═══════════════════════════════════════════════════════════
+       INICIALIZAÇÃO — aplica CONFIG ao DOM
+       ═══════════════════════════════════════════════════════════ */
+    (function initFromConfig() {
+
+      /* Foto da CEO */
+      if (CONFIG.ceo.photo) {
+        const frame  = document.getElementById('ceoPhotoFrame');
+        const ph     = document.getElementById('ceoPlaceholder');
+        if (frame && ph) {
+          const img  = document.createElement('img');
+          img.src    = CONFIG.ceo.photo;
+          img.alt    = CONFIG.ceo.name;
+          img.loading = 'lazy';
+          ph.replaceWith(img);
+        }
+      }
+
+      /* Src do mapa */
+      const mapFrame = document.querySelector('.office-map iframe');
+      if (mapFrame && CONFIG.mapsEmbed) {
+        mapFrame.src = CONFIG.mapsEmbed;
+      }
+
+    })();
+
+
+    /* ═══════════════════════════════════════════════════════════
+       DRAWER LATERAL — menu de navegação
+       ═══════════════════════════════════════════════════════════ */
+    const burger  = document.getElementById('burger');
+    const drawer  = document.getElementById('drawer');
+    const overlay = document.getElementById('overlay');
+
+    function openDrawer() {
+      drawer.classList.add('open');
+      overlay.classList.add('show');
+      burger.classList.add('open');
+      burger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('open');
+      overlay.classList.remove('show');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    burger.addEventListener('click',  () => drawer.classList.contains('open') ? closeDrawer() : openDrawer());
+    overlay.addEventListener('click', closeDrawer);
+
+    /* Fecha ao clicar em um link do drawer */
+    document.querySelectorAll('#drawerMenu a').forEach(a => {
+      a.addEventListener('click', closeDrawer);
+    });
+
+    /* Fecha com ESC */
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+
+
+    /* ═══════════════════════════════════════════════════════════
+       SCROLL REVEAL — elementos com classe .rev
+       ═══════════════════════════════════════════════════════════ */
+    const revObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          revObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.07 });
+
+    document.querySelectorAll('.rev').forEach(el => revObs.observe(el));
+
+
+    /* ═══════════════════════════════════════════════════════════
+       HERO — palavra que alterna com animação suave
+       ═══════════════════════════════════════════════════════════ */
+    (function initMorph() {
+      const el     = document.getElementById('morphWord');
+      const words  = CONFIG.heroWords;
+      let   idx    = 0;
+
+      function next() {
+        /* Sai */
+        el.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+        el.style.opacity    = '0';
+        el.style.transform  = 'translateY(-10px)';
+
+        setTimeout(() => {
+          idx = (idx + 1) % words.length;
+          el.textContent = words[idx];
+
+          /* Reseta sem transição */
+          el.style.transition = 'none';
+          el.style.opacity    = '0';
+          el.style.transform  = 'translateY(10px)';
+
+          /* Entra */
+          requestAnimationFrame(() => requestAnimationFrame(() => {
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            el.style.opacity    = '1';
+            el.style.transform  = 'translateY(0)';
+          }));
+        }, 370);
+      }
+
+      setInterval(next, 2800);
+    })();
+
+
+    /* ═══════════════════════════════════════════════════════════
+       MARQUEE — gera os chips de setor a partir do CONFIG
+       ═══════════════════════════════════════════════════════════ */
+    (function buildMarquee() {
+      const track   = document.getElementById('marqTrack');
+      const sectors = [...CONFIG.sectors, ...CONFIG.sectors]; /* duplica para loop infinito */
+
+      sectors.forEach((s, i) => {
+        const chip = document.createElement('span');
+        chip.className   = 'marq-chip';
+        chip.textContent = s;
+        track.appendChild(chip);
+
+        /* Separador entre chips */
+        if (i < sectors.length - 1) {
+          const dot = document.createElement('span');
+          dot.className = 'marq-dot';
+          dot.setAttribute('aria-hidden', 'true');
+          track.appendChild(dot);
+        }
+      });
+    })();
+
+
+    /* ═══════════════════════════════════════════════════════════
+       SMOOTH SCROLL — ancora com offset do nav fixo
+       ═══════════════════════════════════════════════════════════ */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const href   = a.getAttribute('href');
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          const offset = document.getElementById('nav').offsetHeight + 8;
+          const top    = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+  </script>
+</body>
+</html>
