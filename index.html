@@ -293,8 +293,9 @@
 
     /* Palavra que troca */
     .h-morph-wrap {
-      height: clamp(3.1rem, 6vw, 4.7rem);
-      overflow: hidden;
+      height: auto;          /* altura dinâmica — não corta mais */
+      min-height: clamp(3.1rem, 6vw, 4.7rem);
+      overflow: visible;     /* garante que duas linhas aparecem */
       margin-bottom: 2rem;
       animation: riseUp 0.7s ease 0.28s both;
     }
