@@ -1669,23 +1669,22 @@
        FOTO DA CEO — carrega antes de exibir, com fallback
        assets/ceo.jpg → Sofia.jpg (raiz) → placeholder
        ═══════════════════════════════════════════════════════════ */
-    (function initCeoPhoto() {
-      const ph = document.getElementById('ceoPlaceholder');
-      if (!ph || !CONFIG.ceo.photo) return;
+(function initCeoPhoto() {
+  const ph = document.getElementById('ceoPlaceholder');
+  if (!ph || !CONFIG.ceo.photo) return;
 
-      const candidates = [CONFIG.ceo.photo, 'Sofia.jpg'];
+  const candidates = [CONFIG.ceo.photo, '/assets/ceo.jpg', 'assets/ceo.jpg'];
 
-      (function tryLoad(i) {
-        if (i >= candidates.length) return;            /* nada carregou → placeholder fica */
-        const img = new Image();
-        img.alt = CONFIG.ceo.name;
-        img.loading = 'lazy';
-        img.decoding = 'async';
-        img.onload  = () => ph.replaceWith(img);
-        img.onerror = () => tryLoad(i + 1);
-        img.src = candidates[i];
-      })(0);
-    })();
+  (function tryLoad(i) {
+    if (i >= candidates.length) { console.warn('[ceo] nenhuma imagem carregou'); return; }
+    const img = new Image();
+    img.alt = CONFIG.ceo.name;
+    img.decoding = 'async';
+    img.onload  = () => ph.replaceWith(img);
+    img.onerror = () => { console.warn('[ceo] falhou:', candidates[i]); tryLoad(i + 1); };
+    img.src = candidates[i];
+  })(0);
+})();
 
 
     /* ═══════════════════════════════════════════════════════════
