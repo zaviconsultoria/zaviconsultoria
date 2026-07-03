@@ -3,28 +3,92 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0C1B2E" />
+
+  <!--
+    ╔══════════════════════════════════════════════════════════════╗
+    ║  CHANGELOG v2 (jul/2026)                                      ║
+    ║  • Foto CEO: caminho relativo (assets/Sofia.jpg) + fallback   ║
+    ║  • Mapa: pin corrigido (Bom Retiro, CEP 01123-020)            ║
+    ║  • H1 no hero; hierarquia de headings corrigida               ║
+    ║  • SEO social: og:image, twitter card, favicon, JSON-LD       ║
+    ║  • Bug: clique no logo lançava SyntaxError (querySelector'#') ║
+    ║  • Hero morph: sem "pulo" de layout entre palavras            ║
+    ║  • CONFIG realmente aplicado ao DOM (white-label funcional)   ║
+    ║  • tel: em formato E.164 (+55) · a11y · reduced-motion        ║
+    ╚══════════════════════════════════════════════════════════════╝
+  -->
 
   <!-- SEO -->
   <title>ZAVI Consultoria | Recursos Administrativos em Licitações Públicas</title>
   <meta name="description" content="Especialistas em recursos administrativos, impugnação de edital e defesa estratégica em licitações públicas. Atendimento em todo o Brasil." />
   <meta name="keywords" content="recurso administrativo licitação, impugnação edital, defesa licitação pública, desclassificação pregão, contrarrazões licitação" />
-  <link rel="canonical" href="https://zaviconsultoria.com.br" />
+  <link rel="canonical" href="https://www.zaviconsultoria.com.br/" />
 
-  <!-- Open Graph -->
+  <!-- Open Graph (WhatsApp / LinkedIn / Facebook) -->
   <meta property="og:title" content="ZAVI Consultoria | Recursos em Licitações" />
   <meta property="og:description" content="Perdeu uma licitação? Ainda dá para reverter. Especialistas em recursos administrativos." />
-  <meta property="og:url" content="https://zaviconsultoria.com.br" />
+  <meta property="og:url" content="https://www.zaviconsultoria.com.br/" />
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="ZAVI Consultoria" />
+  <meta property="og:locale" content="pt_BR" />
+  <!-- Imagem exibida ao compartilhar o link. Ideal: banner dedicado 1200×630. -->
+  <meta property="og:image" content="https://www.zaviconsultoria.com.br/assets/Sofia.jpg" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ZAVI Consultoria | Recursos em Licitações" />
+  <meta name="twitter:description" content="Perdeu uma licitação? Ainda dá para reverter. Especialistas em recursos administrativos." />
+  <meta name="twitter:image" content="https://www.zaviconsultoria.com.br/assets/Sofia.jpg" />
+
+  <!-- Favicon (SVG inline — sem arquivo extra) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230C1B2E'/%3E%3Crect x='8' y='8' width='48' height='48' fill='none' stroke='%23D4AF4F' stroke-width='3'/%3E%3Cpath d='M20 19H44V25L31 39H44V45H20V39L33 25H20Z' fill='%23D4AF4F'/%3E%3C/svg%3E" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+
+  <!-- Dados estruturados — Google Business rich results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "name": "ZAVI Consultoria",
+    "description": "Recursos administrativos, impugnação de edital e defesa estratégica em licitações públicas.",
+    "url": "https://www.zaviconsultoria.com.br/",
+    "image": "https://www.zaviconsultoria.com.br/assets/Sofia.jpg",
+    "telephone": "+551133319659",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Correia de Melo, 84, Sala 805 - Bom Retiro",
+      "addressLocality": "São Paulo",
+      "addressRegion": "SP",
+      "postalCode": "01123-020",
+      "addressCountry": "BR"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": -23.530373, "longitude": -46.6375433 },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }],
+    "areaServed": "BR",
+    "founder": { "@type": "Person", "name": "Sofia Farah Zavitsanos Vlahos" },
+    "sameAs": [
+      "https://www.linkedin.com/in/sofiazavitsanos/",
+      "https://www.instagram.com/zaviconsultoria"
+    ]
+  }
+  </script>
 
   <!--
     ╔══════════════════════════════════════════╗
     ║  FONTE: Plus Jakarta Sans                ║
-    ║  Família única — clean, startup, moderna ║
+    ║  Pesos usados: 400–800 (300 removido)    ║
     ╚══════════════════════════════════════════╝
   -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
     /* ═══════════════════════════════════════════════════════════
@@ -80,6 +144,14 @@
        ═══════════════════════════════════════════════════════════ */
     .wrap    { max-width: var(--max); margin: 0 auto; padding: 0 var(--px); }
     section  { padding: var(--py) 0; }
+
+    /* Título de seção — unificado (antes duplicado por seção) */
+    .sec-title {
+      font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+    }
 
     /* Eyebrow label */
     .eyebrow {
@@ -187,12 +259,17 @@
       background: var(--c-navy);
       z-index: 1050;
       transform: translateX(100%);
-      transition: transform 0.42s var(--ease);
+      visibility: hidden;   /* fechado: links fora do fluxo de Tab */
+      transition: transform 0.42s var(--ease), visibility 0s linear 0.42s;
       display: flex; flex-direction: column;
       padding: 5rem 2.5rem 2.5rem;
       border-left: 1px solid rgba(184, 150, 46, 0.1);
     }
-    .drawer.open { transform: translateX(0); }
+    .drawer.open {
+      transform: translateX(0);
+      visibility: visible;
+      transition: transform 0.42s var(--ease);
+    }
 
     /* Links do menu */
     .drawer-menu { flex: 1; display: flex; flex-direction: column; justify-content: center; }
@@ -219,7 +296,7 @@
     }
     .drawer-foot p {
       font-size: 0.73rem;
-      color: rgba(255, 255, 255, 0.28);
+      color: rgba(255, 255, 255, 0.45);
       margin-bottom: 0.3rem;
     }
     .drawer-foot a {
@@ -291,27 +368,34 @@
       animation: riseUp 0.7s ease 0.2s both;
     }
 
-    /* Palavra que troca */
+    /* Palavras que trocam — empilhadas na mesma célula de grid:
+       o container assume a altura da MAIOR palavra e o layout
+       abaixo nunca "pula" quando o texto alterna 1 ↔ 2 linhas. */
     .h-morph-wrap {
-      height: auto;          /* altura dinâmica — não corta mais */
-      min-height: clamp(3.1rem, 6vw, 4.7rem);
-      overflow: visible;     /* garante que duas linhas aparecem */
+      display: grid;
       margin-bottom: 2rem;
       animation: riseUp 0.7s ease 0.28s both;
     }
     .h-morph {
+      grid-area: 1 / 1;
       font-size: clamp(2.7rem, 5.2vw, 4.2rem);
       font-weight: 800;
       color: var(--c-gold2);
       line-height: 1.06;
       letter-spacing: -0.025em;
       display: block;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.45s var(--ease), transform 0.45s var(--ease);
+      pointer-events: none;
       will-change: opacity, transform;
     }
+    .h-morph.active { opacity: 1; transform: none; }
+    .h-morph.out    { opacity: 0; transform: translateY(-12px); }
 
     .h-sub {
       font-size: clamp(0.88rem, 1.35vw, 1rem);
-      color: rgba(255, 255, 255, 0.48);
+      color: rgba(255, 255, 255, 0.62);
       line-height: 1.85;
       font-weight: 400;
       max-width: 440px;
@@ -339,7 +423,7 @@
       font-weight: 700;
       letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.28);
+      color: rgba(255, 255, 255, 0.42);
       margin-bottom: 2rem;
     }
 
@@ -372,7 +456,7 @@
       display: block;
       width: 100%;
       font-size: 0.75rem;
-      color: rgba(255, 255, 255, 0.38);
+      color: rgba(255, 255, 255, 0.52);
       font-weight: 400;
       margin-top: 0.2rem;
     }
@@ -397,7 +481,7 @@
       animation: scan 2s ease-in-out infinite 1.6s;
     }
     @keyframes scan { 0% { left: -100%; } 100% { left: 100%; } }
-    .h-scroll-hint span { font-size: 0.58rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255, 255, 255, 0.22); }
+    .h-scroll-hint span { font-size: 0.58rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255, 255, 255, 0.35); }
 
     @keyframes riseUp  { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
     @keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
@@ -441,7 +525,7 @@
     .prob-card:hover { background: var(--c-navy); }
     .prob-card:hover .pc-bar   { background: var(--c-gold2); }
     .prob-card:hover .pc-title { color: var(--c-white); }
-    .prob-card:hover .pc-text  { color: rgba(255, 255, 255, 0.42); }
+    .prob-card:hover .pc-text  { color: rgba(255, 255, 255, 0.62); }
 
     .pc-bar {
       width: 20px; height: 1.5px;
@@ -474,7 +558,6 @@
     #services { background: var(--c-white); }
 
     .srv-hd { max-width: 560px; margin-bottom: 3rem; }
-    .srv-hd h2 { font-size: clamp(1.9rem, 3.5vw, 2.75rem); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; }
 
     .srv-grid {
       display: grid;
@@ -566,17 +649,13 @@
     }
 
     .why-l h2 {
-      font-size: clamp(1.9rem, 3.5vw, 2.75rem);
-      font-weight: 800;
       color: var(--c-white);
-      letter-spacing: -0.025em;
-      line-height: 1.1;
       margin: 1rem 0 1.5rem;
     }
 
     .why-l p {
       font-size: 0.86rem;
-      color: rgba(255, 255, 255, 0.38);
+      color: rgba(255, 255, 255, 0.55);
       line-height: 1.9;
       font-weight: 400;
     }
@@ -604,7 +683,7 @@
       min-width: 1.75rem;
     }
 
-    .why-body h4 {
+    .why-body h3 {
       font-size: 0.88rem;
       font-weight: 700;
       color: var(--c-white);
@@ -614,7 +693,7 @@
 
     .why-body p {
       font-size: 0.78rem;
-      color: rgba(255, 255, 255, 0.36);
+      color: rgba(255, 255, 255, 0.52);
       line-height: 1.72;
       font-weight: 400;
     }
@@ -629,12 +708,6 @@
     }
 
     .sectors-hd { margin-bottom: 2.75rem; }
-    .sectors-hd h2 {
-      font-size: clamp(1.9rem, 3.5vw, 2.75rem);
-      font-weight: 800;
-      letter-spacing: -0.025em;
-      line-height: 1.1;
-    }
     .sectors-hd p {
       margin-top: 0.65rem;
       font-size: 0.86rem;
@@ -763,13 +836,7 @@
     }
 
     /* Coluna do texto */
-    .about-text h2 {
-      font-size: clamp(1.9rem, 3.5vw, 2.75rem);
-      font-weight: 800;
-      letter-spacing: -0.025em;
-      line-height: 1.1;
-      margin: 1rem 0 1.5rem;
-    }
+    .about-text h2 { margin: 1rem 0 1.5rem; }
 
     .about-bio {
       font-size: 0.9rem;
@@ -819,12 +886,6 @@
     #office { background: var(--c-cream); }
 
     .office-hd { margin-bottom: 2.75rem; }
-    .office-hd h2 {
-      font-size: clamp(1.9rem, 3.5vw, 2.75rem);
-      font-weight: 800;
-      letter-spacing: -0.025em;
-      line-height: 1.1;
-    }
 
     /* 4 cards de informação lado a lado */
     .office-cards {
@@ -910,12 +971,12 @@
       gap: 1.25rem;
     }
 
-    .ft-copy { font-size: 0.71rem; color: rgba(255, 255, 255, 0.26); }
+    .ft-copy { font-size: 0.71rem; color: rgba(255, 255, 255, 0.42); }
 
     .ft-links { display: flex; gap: 1.75rem; flex-wrap: wrap; }
     .ft-links a {
       font-size: 0.71rem;
-      color: rgba(255, 255, 255, 0.26);
+      color: rgba(255, 255, 255, 0.42);
       letter-spacing: 0.07em;
       text-transform: uppercase;
       font-weight: 500;
@@ -944,6 +1005,20 @@
     @keyframes wppBeat {
       0%, 100% { box-shadow: 0 4px 16px rgba(37, 211, 102, 0.38); }
       50%       { box-shadow: 0 4px 24px rgba(37, 211, 102, 0.58), 0 0 0 7px rgba(37, 211, 102, 0.07); }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       ACESSIBILIDADE — usuários com sensibilidade a movimento
+       ═══════════════════════════════════════════════════════════ */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .marq-track { animation: none; width: auto; flex-wrap: wrap; }
+      .rev { opacity: 1; transform: none; }
     }
 
     /* ═══════════════════════════════════════════════════════════
@@ -991,7 +1066,7 @@
       </div>
     </a>
 
-    <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer">
+    <button type="button" class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer">
       <span></span><span></span><span></span>
     </button>
   </nav>
@@ -1011,7 +1086,7 @@
 
     <div class="drawer-foot">
       <p>Fale conosco</p>
-      <a href="https://wa.me/5511992971005?text=Ol%C3%A1%2C%20gostaria%20de%20analisar%20meu%20caso." target="_blank" rel="noopener">
+      <a data-wa data-wa-text href="https://wa.me/5511992971005?text=Ol%C3%A1%2C%20gostaria%20de%20analisar%20meu%20caso%20de%20licita%C3%A7%C3%A3o." target="_blank" rel="noopener">
         (11) 99297-1005
       </a>
     </div>
@@ -1033,12 +1108,14 @@
         <span class="eyebrow">Especialistas em Licitações Públicas</span>
       </div>
 
-      <div class="h-main">
+      <!-- H1 da página (antes o site não tinha h1) -->
+      <h1 class="h-main">
         <span class="h-title-static">Sua empresa foi<br>prejudicada em</span>
-        <div class="h-morph-wrap" aria-live="polite" aria-atomic="true">
-          <span class="h-morph" id="morphWord">uma licitação?</span>
-        </div>
-      </div>
+        <span class="h-morph-wrap" id="morphWrap">
+          <!-- Fallback sem JS: primeira palavra visível. O JS gera as demais. -->
+          <span class="h-morph active">uma licitação?</span>
+        </span>
+      </h1>
 
       <p class="h-sub">
         Recursos administrativos estratégicos e defesa técnica
@@ -1047,7 +1124,7 @@
     </div>
 
     <!-- Card de dados — visível apenas em desktop -->
-    <div class="h-right" aria-hidden="true">
+    <div class="h-right">
       <div class="h-card">
         <p class="h-card-label">Expertise em números</p>
         <div class="h-stats">
@@ -1085,9 +1162,7 @@
         <div class="rev">
           <span class="eyebrow">Situações comuns</span>
           <div class="bar"></div>
-          <h2 style="font-size:clamp(1.9rem,3.5vw,2.75rem);font-weight:800;letter-spacing:-0.025em;line-height:1.1;">
-            Resultados que ainda podem ser revertidos
-          </h2>
+          <h2 class="sec-title">Resultados que ainda podem ser revertidos</h2>
         </div>
         <p class="prob-intro rev d1">
           Empresas perdem contratos todos os dias por não saberem que têm o direito de recorrer.
@@ -1099,32 +1174,32 @@
       <div class="prob-grid rev d2">
         <div class="prob-card">
           <div class="pc-bar"></div>
-          <div class="pc-title">Desclassificação injusta</div>
+          <h3 class="pc-title">Desclassificação injusta</h3>
           <p class="pc-text">A proposta foi rejeitada com base em critérios subjetivos ou interpretação equivocada do edital pela comissão julgadora.</p>
         </div>
         <div class="prob-card">
           <div class="pc-bar"></div>
-          <div class="pc-title">Edital restritivo</div>
+          <h3 class="pc-title">Edital restritivo</h3>
           <p class="pc-text">Exigências que ferem a isonomia ou a competitividade, favorecendo determinados fornecedores em detrimento dos demais.</p>
         </div>
         <div class="prob-card">
           <div class="pc-bar"></div>
-          <div class="pc-title">Erro na análise da proposta</div>
+          <h3 class="pc-title">Erro na análise da proposta</h3>
           <p class="pc-text">A administração interpretou mal a documentação técnica ou financeira, gerando uma decisão passível de revisão formal.</p>
         </div>
         <div class="prob-card">
           <div class="pc-bar"></div>
-          <div class="pc-title">Perda por detalhe formal</div>
+          <h3 class="pc-title">Perda por detalhe formal</h3>
           <p class="pc-text">Um dado secundário foi usado para eliminar uma proposta tecnicamente superior. Isso pode e deve ser contestado.</p>
         </div>
         <div class="prob-card">
           <div class="pc-bar"></div>
-          <div class="pc-title">Contrato atribuído irregularmente</div>
+          <h3 class="pc-title">Contrato atribuído irregularmente</h3>
           <p class="pc-text">O vencedor declarado não preenchia os requisitos do edital e há fundamentos concretos para questionar a decisão.</p>
         </div>
         <div class="prob-card">
           <div class="pc-bar"></div>
-          <div class="pc-title">Prazo se esgotando</div>
+          <h3 class="pc-title">Prazo se esgotando</h3>
           <p class="pc-text">Os prazos administrativos são curtos e improrrogáveis. A ausência de ação imediata encerra definitivamente o direito ao recurso.</p>
         </div>
       </div>
@@ -1141,7 +1216,7 @@
       <div class="srv-hd rev">
         <span class="eyebrow">Serviços</span>
         <div class="bar"></div>
-        <h2>Defesa técnica em cada fase do processo</h2>
+        <h2 class="sec-title">Defesa técnica em cada fase do processo</h2>
       </div>
 
       <div class="srv-grid">
@@ -1218,7 +1293,7 @@
       <div class="why-inner">
         <div class="why-l rev">
           <span class="eyebrow">Por que a ZAVI</span>
-          <h2>Uma atuação que vai além do recurso</h2>
+          <h2 class="sec-title">Uma atuação que vai além do recurso</h2>
           <p>Décadas de experiência prática no mercado público aliadas a uma formação que combina Direito Administrativo com visão econômica.</p>
         </div>
 
@@ -1226,35 +1301,35 @@
           <div class="why-row">
             <span class="why-n">I</span>
             <div class="why-body">
-              <h4>Especialização exclusiva em licitações</h4>
+              <h3>Especialização exclusiva em licitações</h3>
               <p>Não somos generalistas. Todo o conhecimento é direcionado ao mercado público, o que se reflete diretamente na qualidade da defesa.</p>
             </div>
           </div>
           <div class="why-row">
             <span class="why-n">II</span>
             <div class="why-body">
-              <h4>Agilidade nos prazos fatais</h4>
+              <h3>Agilidade nos prazos fatais</h3>
               <p>Nossa estrutura permite elaboração técnica rigorosa em tempo hábil. Quando os dias contam, a experiência faz a diferença.</p>
             </div>
           </div>
           <div class="why-row">
             <span class="why-n">III</span>
             <div class="why-body">
-              <h4>Atendimento em todo o Brasil</h4>
+              <h3>Atendimento em todo o Brasil</h3>
               <p>Atuamos em licitações de órgãos federais, estaduais e municipais em qualquer estado da federação.</p>
             </div>
           </div>
           <div class="why-row">
             <span class="why-n">IV</span>
             <div class="why-body">
-              <h4>Visão econômica aplicada ao direito</h4>
+              <h3>Visão econômica aplicada ao direito</h3>
               <p>Formação em Economia complementa a análise jurídica, permitindo avaliar propostas e irregularidades com maior profundidade.</p>
             </div>
           </div>
           <div class="why-row">
             <span class="why-n">V</span>
             <div class="why-body">
-              <h4>Parecer honesto antes de qualquer ação</h4>
+              <h3>Parecer honesto antes de qualquer ação</h3>
               <p>Não elaboramos recursos sem viabilidade. Você sempre saberá o que é possível e quais são as perspectivas reais do seu caso.</p>
             </div>
           </div>
@@ -1273,7 +1348,7 @@
       <div class="sectors-hd rev">
         <span class="eyebrow">Setores atendidos</span>
         <div class="bar"></div>
-        <h2>Experiência em diversos mercados</h2>
+        <h2 class="sec-title">Experiência em diversos mercados</h2>
         <p>Atuamos com empresas de qualquer segmento. Os setores abaixo refletem parte da nossa experiência acumulada e não representam um limite de atuação.</p>
       </div>
     </div>
@@ -1297,10 +1372,10 @@
         <div class="ceo-photo rev">
           <div class="ceo-photo-frame" id="ceoPhotoFrame">
             <!--
-              Substitua o placeholder abaixo pela tag img quando tiver a foto:
-              <img src="URL_DA_FOTO" alt="Sofia Farah Zavitsanos Vlahos" />
-
-              O JS injeta a foto automaticamente a partir de CONFIG.ceo.photo
+              A foto vem de CONFIG.ceo.photo (assets/Sofia.jpg).
+              O JS só substitui o placeholder DEPOIS que a imagem carrega
+              com sucesso — se o arquivo não existir, o placeholder fica
+              (nunca aparece ícone de imagem quebrada).
             -->
             <div class="ceo-placeholder" id="ceoPlaceholder">
               <span class="ceo-placeholder-initials">SF</span>
@@ -1312,7 +1387,7 @@
         <!-- Texto -->
         <div class="about-text rev d1">
           <span class="eyebrow">A Empresa</span>
-          <h2>Décadas dedicadas ao mercado público</h2>
+          <h2 class="sec-title">Décadas dedicadas ao mercado público</h2>
 
           <p class="about-bio">
             A ZAVI Consultoria atua há mais de três décadas no mercado público,
@@ -1345,12 +1420,12 @@
           </div>
 
           <div class="about-links">
-            <a href="https://www.linkedin.com/in/sofiazavitsanos/" target="_blank" rel="noopener" class="soc-btn">
+            <a data-social="linkedin" href="https://www.linkedin.com/in/sofiazavitsanos/" target="_blank" rel="noopener" class="soc-btn">
               <!-- Ícone LinkedIn -->
               <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
               LinkedIn
             </a>
-            <a href="https://www.instagram.com/zaviconsultoria" target="_blank" rel="noopener" class="soc-btn">
+            <a data-social="instagram" href="https://www.instagram.com/zaviconsultoria" target="_blank" rel="noopener" class="soc-btn">
               <!-- Ícone Instagram -->
               <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
               @zaviconsultoria
@@ -1372,7 +1447,7 @@
       <div class="office-hd rev">
         <span class="eyebrow">Localização</span>
         <div class="bar"></div>
-        <h2>Visite nosso escritório</h2>
+        <h2 class="sec-title">Visite nosso escritório</h2>
       </div>
 
       <!-- 4 cards de contato -->
@@ -1384,9 +1459,9 @@
             <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
           <div class="oi-lbl">Endereço</div>
-          <div class="oi-val">
-            Rua Correia de Melo, 84<br>
-            Sala 805 — São Paulo, SP
+          <div class="oi-val" data-lines="address">
+            Rua Correia de Melo, 84 — Sala 805<br>
+            Bom Retiro, São Paulo — SP, 01123-020
           </div>
         </div>
 
@@ -1397,7 +1472,7 @@
           </div>
           <div class="oi-lbl">Telefone</div>
           <div class="oi-val">
-            <a href="tel:01133319659">(11) 3331-9659</a>
+            <a data-tel href="tel:+551133319659">(11) 3331-9659</a>
           </div>
         </div>
 
@@ -1409,7 +1484,7 @@
           </div>
           <div class="oi-lbl">WhatsApp</div>
           <div class="oi-val">
-            <a href="https://wa.me/5511992971005" target="_blank" rel="noopener">(11) 99297-1005</a>
+            <a data-wa data-wa-text href="https://wa.me/5511992971005" target="_blank" rel="noopener">(11) 99297-1005</a>
           </div>
         </div>
 
@@ -1419,17 +1494,17 @@
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
           <div class="oi-lbl">Horário</div>
-          <div class="oi-val">
+          <div class="oi-val" data-lines="hours">
             Segunda a sexta<br>9h às 18h
           </div>
         </div>
 
       </div><!-- /office-cards -->
 
-      <!-- Mapa Google -->
+      <!-- Mapa Google — pin correto: Bom Retiro, CEP 01123-020 -->
       <div class="office-map rev d2">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.3!2d-46.6520!3d-23.5700!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9220a!2sRua%20Correia%20de%20Melo%2C%2084%20-%20S%C3%A3o%20Paulo%2C%20SP%2C%2001323-010!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
+          src="https://www.google.com/maps?q=Rua%20Correia%20de%20Melo%2C%2084%20-%20Bom%20Retiro%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001123-020&z=16&hl=pt-BR&output=embed"
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
@@ -1448,20 +1523,20 @@
   <footer>
     <div class="wrap">
       <div class="ft-inner">
-        <span class="ft-copy">© 2026 ZAVI Consultoria. Todos os direitos reservados.</span>
+        <span class="ft-copy">© <span id="ftYear">2026</span> ZAVI Consultoria. Todos os direitos reservados.</span>
         <nav class="ft-links" aria-label="Links do rodapé">
           <a href="#services">Serviços</a>
           <a href="#why">Diferenciais</a>
           <a href="#about">A Empresa</a>
           <a href="#office">Localização</a>
-          <a href="https://www.instagram.com/zaviconsultoria" target="_blank" rel="noopener">Instagram</a>
+          <a data-social="instagram" href="https://www.instagram.com/zaviconsultoria" target="_blank" rel="noopener">Instagram</a>
         </nav>
       </div>
     </div>
   </footer>
 
   <!-- WhatsApp flutuante -->
-  <a href="https://wa.me/5511992971005?text=Ol%C3%A1%2C%20gostaria%20de%20analisar%20meu%20caso%20de%20licita%C3%A7%C3%A3o." target="_blank" rel="noopener" class="wpp" aria-label="Contato via WhatsApp">
+  <a data-wa href="https://wa.me/5511992971005?text=Ol%C3%A1%2C%20gostaria%20de%20analisar%20meu%20caso%20de%20licita%C3%A7%C3%A3o." target="_blank" rel="noopener" class="wpp" aria-label="Contato via WhatsApp">
     <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 
@@ -1469,26 +1544,29 @@
   <script>
     /* ═══════════════════════════════════════════════════════════
        CONFIG — White-Label
-       Edite este objeto para personalizar o site sem tocar no HTML
+       Edite este objeto para personalizar o site sem tocar no HTML.
+       (Head/SEO segue estático — editar manualmente se mudar marca.)
        ═══════════════════════════════════════════════════════════ */
     const CONFIG = {
 
       /* Identidade da empresa */
       company: {
-        name:    'ZAVI Consultoria',
-        tagline: 'Recursos em Licitações Públicas',
-        domain:  'zaviconsultoria.com.br',
+        mark:     'Z',
+        name:     'ZAVI',
+        tagline:  'Consultoria',
+        fullName: 'ZAVI Consultoria',
+        domain:   'zaviconsultoria.com.br',
       },
 
-      /* Contatos — use apenas números no whatsapp */
+      /* Contatos — whatsapp apenas números (formato internacional) */
       contact: {
-        whatsapp:    '5511992971005',
-        wppMessage:  'Olá, gostaria de analisar meu caso de licitação.',
-        phone:       '(11) 3331-9659',
-        phoneLink:   'tel:01133319659',
-        address:     'Rua Correia de Melo, 84, Sala 805',
-        city:        'São Paulo, SP',
-        hours:       'Segunda a sexta, 9h às 18h',
+        whatsapp:        '5511992971005',
+        whatsappDisplay: '(11) 99297-1005',
+        wppMessage:      'Olá, gostaria de analisar meu caso de licitação.',
+        phone:           '(11) 3331-9659',
+        phoneLink:       'tel:+551133319659',        /* E.164 — funciona em qualquer aparelho */
+        address:         ['Rua Correia de Melo, 84 — Sala 805', 'Bom Retiro, São Paulo — SP, 01123-020'],
+        hours:           ['Segunda a sexta', '9h às 18h'],
       },
 
       /* Redes sociais */
@@ -1497,11 +1575,12 @@
         instagram: 'https://www.instagram.com/zaviconsultoria',
       },
 
-      /* CEO — insira a URL da foto em photo para ativar */
+      /* CEO — caminho relativo servido pelo GitHub Pages.
+         NUNCA usar link github.com/.../blob/... (é página HTML, não imagem). */
       ceo: {
-        name:   'Sofia Farah Zavitsanos Vlahos',
-        role:   'Fundadora e Advogada',
-        photo:  'https://github.com/zaviconsultoria/zaviconsultoria/blob/main/Sofia.jpg',   /* ← Cole a URL da foto aqui (ex: '/img/sofia.jpg') */
+        name:  'Sofia Farah Zavitsanos Vlahos',
+        role:  'Fundadora e Advogada',
+        photo: 'assets/Sofia.jpg',
       },
 
       /* Palavras do hero que ciclam */
@@ -1535,51 +1614,97 @@
         'Segurança Contra Incêndio',
       ],
 
-      /* Link do Google Maps embed — atualize conforme necessário */
-      mapsEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.3!2d-46.6520!3d-23.5700!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9220a!2sRua%20Correia%20de%20Melo%2C%2084%20-%20S%C3%A3o%20Paulo%2C%20SP%2C%2001323-010!5e0!3m2!1spt-BR!2sbr!4v1700000000000',
+      /* Embed do mapa (formato q=endereço&output=embed — estável, sem token pb) */
+      mapsEmbed: 'https://www.google.com/maps?q=Rua%20Correia%20de%20Melo%2C%2084%20-%20Bom%20Retiro%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001123-020&z=16&hl=pt-BR&output=embed',
     };
+
+    /* Helper */
+    const $$ = sel => document.querySelectorAll(sel);
+    const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 
     /* ═══════════════════════════════════════════════════════════
-       INICIALIZAÇÃO — aplica CONFIG ao DOM
+       APPLY CONFIG — sincroniza o CONFIG com o DOM
+       (o HTML mantém valores estáticos como fallback sem JS)
        ═══════════════════════════════════════════════════════════ */
-    (function initFromConfig() {
+    (function applyConfig() {
+      const C = CONFIG;
 
-      /* Foto da CEO */
-      if (CONFIG.ceo.photo) {
-        const frame  = document.getElementById('ceoPhotoFrame');
-        const ph     = document.getElementById('ceoPlaceholder');
-        if (frame && ph) {
-          const img  = document.createElement('img');
-          img.src    = CONFIG.ceo.photo;
-          img.alt    = CONFIG.ceo.name;
-          img.loading = 'lazy';
-          ph.replaceWith(img);
-        }
-      }
+      /* Logo */
+      const setText = (sel, txt) => { const el = document.querySelector(sel); if (el && txt) el.textContent = txt; };
+      setText('.logo-mark', C.company.mark);
+      setText('.logo-name', C.company.name);
+      setText('.logo-sub',  C.company.tagline);
 
-      /* Src do mapa */
+      /* WhatsApp — href e número exibido */
+      const waHref = 'https://wa.me/' + C.contact.whatsapp + '?text=' + encodeURIComponent(C.contact.wppMessage);
+      $$('[data-wa]').forEach(a => { a.href = waHref; });
+      $$('[data-wa-text]').forEach(a => { a.textContent = C.contact.whatsappDisplay; });
+
+      /* Telefone fixo */
+      $$('[data-tel]').forEach(a => { a.href = C.contact.phoneLink; a.textContent = C.contact.phone; });
+
+      /* Redes sociais */
+      $$('[data-social]').forEach(a => { const url = C.social[a.dataset.social]; if (url) a.href = url; });
+
+      /* Blocos multilinhas (endereço, horário) */
+      $$('[data-lines]').forEach(el => {
+        const lines = C.contact[el.dataset.lines];
+        if (Array.isArray(lines)) el.innerHTML = lines.join('<br>');
+      });
+
+      /* Ano do rodapé */
+      const y = document.getElementById('ftYear');
+      if (y) y.textContent = new Date().getFullYear();
+
+      /* Mapa — só reatribui se o CONFIG divergir do HTML (evita reload duplo) */
       const mapFrame = document.querySelector('.office-map iframe');
-      if (mapFrame && CONFIG.mapsEmbed) {
-        mapFrame.src = CONFIG.mapsEmbed;
+      if (mapFrame && C.mapsEmbed && mapFrame.getAttribute('src') !== C.mapsEmbed) {
+        mapFrame.src = C.mapsEmbed;
       }
-
     })();
 
 
     /* ═══════════════════════════════════════════════════════════
-       DRAWER LATERAL — menu de navegação
+       FOTO DA CEO — carrega antes de exibir, com fallback
+       assets/Sofia.jpg → Sofia.jpg (raiz) → placeholder
+       ═══════════════════════════════════════════════════════════ */
+    (function initCeoPhoto() {
+      const ph = document.getElementById('ceoPlaceholder');
+      if (!ph || !CONFIG.ceo.photo) return;
+
+      const candidates = [CONFIG.ceo.photo, 'Sofia.jpg'];
+
+      (function tryLoad(i) {
+        if (i >= candidates.length) return;            /* nada carregou → placeholder fica */
+        const img = new Image();
+        img.alt = CONFIG.ceo.name;
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        img.onload  = () => ph.replaceWith(img);
+        img.onerror = () => tryLoad(i + 1);
+        img.src = candidates[i];
+      })(0);
+    })();
+
+
+    /* ═══════════════════════════════════════════════════════════
+       DRAWER LATERAL — menu de navegação (com gestão de foco)
        ═══════════════════════════════════════════════════════════ */
     const burger  = document.getElementById('burger');
     const drawer  = document.getElementById('drawer');
     const overlay = document.getElementById('overlay');
+    let   lastFocus = null;
 
     function openDrawer() {
+      lastFocus = document.activeElement;
       drawer.classList.add('open');
       overlay.classList.add('show');
       burger.classList.add('open');
       burger.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
+      const first = drawer.querySelector('a');
+      if (first) first.focus();
     }
 
     function closeDrawer() {
@@ -1588,18 +1713,19 @@
       burger.classList.remove('open');
       burger.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
+      (lastFocus || burger).focus();
     }
 
     burger.addEventListener('click',  () => drawer.classList.contains('open') ? closeDrawer() : openDrawer());
     overlay.addEventListener('click', closeDrawer);
 
     /* Fecha ao clicar em um link do drawer */
-    document.querySelectorAll('#drawerMenu a').forEach(a => {
-      a.addEventListener('click', closeDrawer);
-    });
+    $$('#drawerMenu a').forEach(a => a.addEventListener('click', closeDrawer));
 
     /* Fecha com ESC */
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+    });
 
 
     /* ═══════════════════════════════════════════════════════════
@@ -1614,42 +1740,64 @@
       });
     }, { threshold: 0.07 });
 
-    document.querySelectorAll('.rev').forEach(el => revObs.observe(el));
+    $$('.rev').forEach(el => revObs.observe(el));
 
 
     /* ═══════════════════════════════════════════════════════════
-       HERO — palavra que alterna com animação suave
+       HERO — palavras alternando SEM pulo de layout
+       Todas as palavras são renderizadas na mesma célula de grid:
+       o container assume a altura da maior e só a opacidade troca.
        ═══════════════════════════════════════════════════════════ */
     (function initMorph() {
-      const el     = document.getElementById('morphWord');
-      const words  = CONFIG.heroWords;
-      let   idx    = 0;
+      const wrap  = document.getElementById('morphWrap');
+      if (!wrap) return;
+      const words = CONFIG.heroWords;
 
-      function next() {
-        /* Sai */
-        el.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
-        el.style.opacity    = '0';
-        el.style.transform  = 'translateY(-10px)';
+      wrap.innerHTML = '';
+      const spans = words.map(w => {
+        const s = document.createElement('span');
+        s.className   = 'h-morph';
+        s.textContent = w;
+        wrap.appendChild(s);
+        return s;
+      });
 
-        setTimeout(() => {
-          idx = (idx + 1) % words.length;
-          el.textContent = words[idx];
+      let idx = 0;
+      spans[0].classList.add('active');
 
-          /* Reseta sem transição */
-          el.style.transition = 'none';
-          el.style.opacity    = '0';
-          el.style.transform  = 'translateY(10px)';
+      if (reducedMotion || spans.length < 2) return;   /* respeita prefers-reduced-motion */
 
-          /* Entra */
-          requestAnimationFrame(() => requestAnimationFrame(() => {
-            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            el.style.opacity    = '1';
-            el.style.transform  = 'translateY(0)';
-          }));
-        }, 370);
-      }
+      setInterval(() => {
+        const cur = spans[idx];
+        idx = (idx + 1) % spans.length;
+        cur.classList.remove('active');
+        cur.classList.add('out');
+        setTimeout(() => cur.classList.remove('out'), 480);
+        spans[idx].classList.add('active');
+      }, 2800);
+    })();
 
-      setInterval(next, 2800);
+
+    /* ═══════════════════════════════════════════════════════════
+       CONTADOR — "35+" anima de 0 até o valor no load
+       ═══════════════════════════════════════════════════════════ */
+    (function initCounter() {
+      const el = document.getElementById('countYears');
+      if (!el) return;
+      const target = parseInt(el.textContent, 10) || 35;
+      if (reducedMotion) { el.textContent = target; return; }
+
+      const dur = 1400;
+      let t0 = null;
+      el.textContent = '0';
+
+      requestAnimationFrame(function tick(t) {
+        if (t0 === null) t0 = t;
+        const p = Math.min((t - t0) / dur, 1);
+        const e = 1 - Math.pow(1 - p, 3);              /* ease-out cúbico */
+        el.textContent = Math.round(e * target);
+        if (p < 1) requestAnimationFrame(tick);
+      });
     })();
 
 
@@ -1678,11 +1826,19 @@
 
 
     /* ═══════════════════════════════════════════════════════════
-       SMOOTH SCROLL — ancora com offset do nav fixo
+       SMOOTH SCROLL — âncoras com offset do nav fixo
+       (href="#" tratado à parte: querySelector('#') lança erro)
        ═══════════════════════════════════════════════════════════ */
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
+    $$('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
-        const href   = a.getAttribute('href');
+        const href = a.getAttribute('href');
+
+        if (href === '#') {                            /* logo → topo */
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
+
         const target = document.querySelector(href);
         if (target) {
           e.preventDefault();
