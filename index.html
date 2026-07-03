@@ -8,7 +8,7 @@
   <!--
     ╔══════════════════════════════════════════════════════════════╗
     ║  CHANGELOG v2 (jul/2026)                                      ║
-    ║  • Foto CEO: caminho relativo (assets/Sofia.jpg) + fallback   ║
+    ║  • Foto CEO: caminho relativo (assets/ceo.jpg) + fallback   ║
     ║  • Mapa: pin corrigido (Bom Retiro, CEP 01123-020)            ║
     ║  • H1 no hero; hierarquia de headings corrigida               ║
     ║  • SEO social: og:image, twitter card, favicon, JSON-LD       ║
@@ -33,13 +33,13 @@
   <meta property="og:site_name" content="ZAVI Consultoria" />
   <meta property="og:locale" content="pt_BR" />
   <!-- Imagem exibida ao compartilhar o link. Ideal: banner dedicado 1200×630. -->
-  <meta property="og:image" content="https://www.zaviconsultoria.com.br/assets/Sofia.jpg" />
+  <meta property="og:image" content="https://www.zaviconsultoria.com.br/assets/ceo.jpg" />
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="ZAVI Consultoria | Recursos em Licitações" />
   <meta name="twitter:description" content="Perdeu uma licitação? Ainda dá para reverter. Especialistas em recursos administrativos." />
-  <meta name="twitter:image" content="https://www.zaviconsultoria.com.br/assets/Sofia.jpg" />
+  <meta name="twitter:image" content="https://www.zaviconsultoria.com.br/assets/ceo.jpg" />
 
   <!-- Favicon (SVG inline — sem arquivo extra) -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230C1B2E'/%3E%3Crect x='8' y='8' width='48' height='48' fill='none' stroke='%23D4AF4F' stroke-width='3'/%3E%3Cpath d='M20 19H44V25L31 39H44V45H20V39L33 25H20Z' fill='%23D4AF4F'/%3E%3C/svg%3E" />
@@ -54,7 +54,7 @@
     "name": "ZAVI Consultoria",
     "description": "Recursos administrativos, impugnação de edital e defesa estratégica em licitações públicas.",
     "url": "https://www.zaviconsultoria.com.br/",
-    "image": "https://www.zaviconsultoria.com.br/assets/Sofia.jpg",
+    "image": "https://www.zaviconsultoria.com.br/assets/ceo.jpg",
     "telephone": "+551133319659",
     "address": {
       "@type": "PostalAddress",
@@ -1372,7 +1372,7 @@
         <div class="ceo-photo rev">
           <div class="ceo-photo-frame" id="ceoPhotoFrame">
             <!--
-              A foto vem de CONFIG.ceo.photo (assets/Sofia.jpg).
+              A foto vem de CONFIG.ceo.photo (assets/ceo.jpg).
               O JS só substitui o placeholder DEPOIS que a imagem carrega
               com sucesso — se o arquivo não existir, o placeholder fica
               (nunca aparece ícone de imagem quebrada).
@@ -1580,7 +1580,7 @@
       ceo: {
         name:  'Sofia Farah Zavitsanos Vlahos',
         role:  'Fundadora e Advogada',
-        photo: 'assets/Sofia.jpg',
+        photo: 'assets/ceo.jpg',
       },
 
       /* Palavras do hero que ciclam */
@@ -1667,7 +1667,7 @@
 
     /* ═══════════════════════════════════════════════════════════
        FOTO DA CEO — carrega antes de exibir, com fallback
-       assets/Sofia.jpg → Sofia.jpg (raiz) → placeholder
+       assets/ceo.jpg → Sofia.jpg (raiz) → placeholder
        ═══════════════════════════════════════════════════════════ */
     (function initCeoPhoto() {
       const ph = document.getElementById('ceoPlaceholder');
